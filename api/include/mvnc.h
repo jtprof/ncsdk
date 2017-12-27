@@ -61,7 +61,10 @@ mvncStatus mvncGetDeviceOption(void *deviceHandle, int option, void *data, unsig
 mvncStatus mvncLoadTensor(void *graphHandle, const void *inputTensor, unsigned int inputTensorLength, void *userParam);
 mvncStatus mvncGetResult(void *graphHandle, void **outputData, unsigned int *outputDataLength, void **userParam);
 
+#if defined __GNUC__
 #include "mvnc_deprecated.h"
+#endif
+
 #ifdef __cplusplus
 }
 #endif

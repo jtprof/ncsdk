@@ -20,6 +20,7 @@
 // Very heavily modified from Sabre version of usb_boot
 // Author: David Steinberg <david.steinberg@movidius.com>
 
+#ifndef _WIN32 
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -31,6 +32,20 @@
 #include <errno.h>
 #include <ctype.h>
 #include <libusb.h>
+#else
+//#include <unistd.h>
+//#include <getopt.h>
+//#include <libusb.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
+#include <time.h>
+#include <string.h>
+#include <sys/stat.h>
+#include <errno.h>
+#include <ctype.h>
+#endif
+
 #include "usb_boot.h"
 #include "mvnc.h"
 #include "common.h"

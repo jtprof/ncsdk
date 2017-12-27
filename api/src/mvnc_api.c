@@ -17,6 +17,8 @@
 */
 
 #define _GNU_SOURCE
+
+#ifndef _WIN32 
 #include <dlfcn.h>		// For dladdr
 #include <stdio.h>
 #include <stdlib.h>
@@ -31,6 +33,22 @@
 #include "usb_link.h"
 #include "usb_boot.h"
 #include "common.h"
+#else
+//#include <dlfcn.h>		// For dladdr
+//#include <unistd.h>
+//#include <dirent.h>
+//#include <pthread.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <fcntl.h>
+#include <sys/types.h>
+#include <time.h>
+#include "mvnc.h"
+#include "usb_link.h"
+#include "usb_boot.h"
+#include "common.h"
+#endif
 
 // Graph file structure
 #define HEADER_LENGTH	264

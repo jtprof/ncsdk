@@ -16,6 +16,7 @@
 * approved by Intel in writing.
 */
 
+#ifndef _WIN32 
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -32,6 +33,25 @@
 #include <time.h>
 #include <termios.h>
 #include <libusb.h>
+#else
+//#include <unistd.h>
+//#include <sys/file.h>
+//#include <sys/wait.h>
+//#include <sys/un.h>
+//#include <sys/ioctl.h>
+//#include <termios.h>
+//#include <libusb.h>
+
+#include <stdio.h>
+#include <stdlib.h>
+
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <sys/timeb.h>
+#include <errno.h>
+#include <time.h>
+#endif
 
 #include "usb_link.h"
 #include "usb_boot.h"
